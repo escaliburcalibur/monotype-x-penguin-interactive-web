@@ -74,6 +74,15 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 100);
   textAlign(LEFT, BASELINE);
 
+  buildFloatingLetters();
+}
+
+let cameraStarted = false;
+
+function startCamera() {
+  if (cameraStarted) return;
+  cameraStarted = true;
+
   video = createCapture(VIDEO, { flipped: true });
   video.size(640, 480);
   video.hide();
@@ -93,8 +102,6 @@ function setup() {
   handPose.detectStart(video, (results) => {
     hands = results || [];
   });
-
-  buildFloatingLetters();
 }
 
 function draw() {
@@ -612,6 +619,7 @@ function mousePressed() {
 
   if (inside) {
     introVisible = false;
+    startCamera();
   }
 }
 
