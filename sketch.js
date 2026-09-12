@@ -278,7 +278,7 @@ function drawIntroPopup() {
 
   // message
   const line1 = "Interact with the letters";
-  const line2 = "to form a connection";
+  const line2 = "with your fingers";
 
   textFont(topFont);
   textStyle(NORMAL);
